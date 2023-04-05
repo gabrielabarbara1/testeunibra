@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste</title>
+    <script src="scriptcadastro.js"></script>
+    <link rel="stylesheet" href="stylecadastro.css">
+</head>
+<body>
+<section>
+    <header id="imagemfixa">
+    <img src="unibra-logo.png" id="logo" >
+    </header>
+        <div id="todo-form">
+    <h2>CADASTRO</h2>
+    <p>Informe os dados abaixo para poder 
+        se cadastrar no sistema.
+    </p>
+    <form method="POST" id="cadastro-form" action="cadastro.php">
+    <label for="cpf">NOME COMPLETO</label><br>
+        <input type="text" id="nome" name="nome"><br>
+        <label for="cpf">CPF</label><br>
+        <input type="text" id="cpf" name="cpf"><br>
+        <label for="email">EMAIL</label><br>
+        <input type="text" id="email" name="email"><br>
+        <label for="senha">SENHA</label><br>
+        <input type="password" id="senha" name="senha"><br>
+        <button type="submit" id="cadastrar_botao">Cadastrar</button></br>
+        <button type="button" id="voltar_botao">Voltar</button>
+        <div id="retangulo"></div>
+    </form>
+        </div>
+</section>
+</body>
+</html>

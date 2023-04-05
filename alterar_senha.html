@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste</title>
+    <link rel="stylesheet" href="stylealterarsenha.css">
+</head>
+<body>
+<section>
+    <header id="imagemfixa">
+    <img src="unibra-logo.png" id="logo" >
+    </header>
+        <div id="todo-form">
+    <h2>ALTERAR SENHA</h2>
+    <p>Informe abaixo sua nova senha</p>
+    <form method="POST" id="cadastro-form" action="atualizar_senha.php">
+        <label for="novasenha">Nova senha</label><br>
+        <input type="password" id="nova_senha" name="nova_senha"><br>
+        <label for="confsenha">Confirme a nova senha</label><br>
+        <input type="password" id="conf_senha" name="conf_senha"><br>
+        <button type="submit" id="enviar_botao">Atualizar senha</button></br>
+        <div id="retangulo"></div>
+    </form>
+        </div>
+</section>
+<script>
+    // Adiciona um evento de envio ao formulário
+    document.getElementById("cadastro-form").addEventListener("submit", function(event) {
+        event.preventDefault(); // Impede o envio padrão do formulário
+
+        // Obtém os valores do formulário
+        var novaSenha = document.getElementById("nova_senha").value;
+        var confSenha = document.getElementById("conf_senha").value;
+
+        // Verifica se as senhas digitadas são iguais
+        if (novaSenha !== confSenha) {
+            alert("As senhas não conferem.");
+            return;
+        }
+
+        // Cria uma requisição Ajax
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                // Exibe a mensagem de retorno do servidor
+                document.getElementById("mensagem").innerHTML = this.responseText;
+            }
+        };
+        xhttp.open("POST", "atualizar_senha.php", true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send("novaSenha=" + novaSenha);
+    });
+</script>
+<div id="mensagem"></div>
+</body>
+</html>
